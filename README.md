@@ -13,8 +13,7 @@ Create your application locally, and initialize a local git repo. Make frequent 
 |Use appendChild and/or prepend to add new elements to the DOM.                                               |5%    | 
 |Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. |2%    | 
 |Modify the HTML or text content of at least one element in response to user interaction using innerHTML, innerText, or textContent.                                                                                                  |10%   | 
-|Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties.
-                                                                                                              |5%    | 
+|Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties.                                                                                                   |5%    | 
 |Modify at least one attribute of an element in response to user interaction.                                 |3%    | 
 |Register at least two different event listeners and create the associated event handler functions.                                                                                                    |10%   | 
 |Use at least two Browser Object Model (BOM) properties or methods.                                           |3%    | 
