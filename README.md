@@ -5,7 +5,7 @@ Create your application locally, and initialize a local git repo. Make frequent 
 
 |Requirement                                        |Weight|
 |---------------------------------------------------|------| 
-|Cache at least one element using selectElementById.|5%    | (Location with in files)     
+|Cache at least one element using selectElementById.|5%    | (Location with in file)     
  
 
 	
