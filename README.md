@@ -6,8 +6,11 @@ Create your application locally, and initialize a local git repo. Make frequent 
 |Requirement                                        |Weight|
 |---------------------------------------------------|------| 
 |Cache at least one element using selectElementById.|5%    | 
-|Cache at least one element using querySelector or querySelectorAll.|5%    | 
-|Cache at least one element using selectElementById.|5%    | 
+|Cache at least one element using querySelector or 
+querySelectorAll.                                   |5%    | 
+|Use the parent-child-sibling relationship to 
+navigate between elements at least once 
+(firstChild, lastChild, parentNode, nextElementSibling, etc.).                          |5%    | 
 |Cache at least one element using selectElementById.|5%    | 
 |Cache at least one element using selectElementById.|5%    | 
 |Cache at least one element using selectElementById.|5%    |   
