@@ -1,4 +1,4 @@
-# Mood Journal
+# Mood Board
 A simple web application that allows users to log their daily mood and add notes about their day. Users can view a history of their moods and see trends over time.
 
 ## Features
