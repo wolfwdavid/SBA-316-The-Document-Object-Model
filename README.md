@@ -1,3 +1,22 @@
+# Mood Journal
+A simple web application that allows users to log their daily mood and add notes about their day. Users can view a history of their moods and see trends over time.
+
+## Features
+- Select mood from a dropdown
+- Add notes about the day
+- View mood history
+- Data persistence with local storage
+
+## How to Use
+1. Select your mood from the dropdown menu.
+2. Enter notes about your day.
+3. Click "Log Mood" to save the entry.
+4. View your mood history below the form.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
 ## Requirements
 The requirements listed here are absolute minimums. Ensure that your application meets these requirements before attempting to further expand your features.
 

@@ -1,3 +1,7 @@
+// Alert the user
+alert("Welcome to the mood board!");
+
+
 const moodSelector = document.getElementById('mood-selector'); // Cache mood selector
 const noteInput = document.querySelector('#note-input'); // Cache note input
 const moodHistory = document.getElementById('mood-history'); // Cache mood history
@@ -41,3 +45,7 @@ document.getElementById('mood-form').addEventListener('submit', logMoodEntry); /
 
 // Load mood history on page load
 loadMoodHistory();
+
+setTimeout(() => {
+    console.log("Happy message");
+  }, 2000);
