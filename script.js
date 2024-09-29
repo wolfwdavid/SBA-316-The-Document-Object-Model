@@ -40,13 +40,13 @@ const logMoodEntry = (event) => {
 };
 
 const saveMoodToLocalStorage = (mood, note) => {
-    const moodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+    const moodEntries = JSON.parse(localStorage.getItem('moodEntries'));
     moodEntries.push({ mood, note });
     localStorage.setItem('moodEntries', JSON.stringify(moodEntries));
 };
 
 const loadMoodHistory = () => {
-    const moodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+    const moodEntries = JSON.parse(localStorage.getItem('moodEntries'));
     moodEntries.forEach(entry => {
         const moodEntry = document.createElement('div');
         moodEntry.innerHTML = `<strong>${entry.mood}</strong>: ${entry.note}`;
