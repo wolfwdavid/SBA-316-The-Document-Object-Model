@@ -1,54 +1,43 @@
-const chatWindow = document.getElementById('chatWindow');
-const chatForm = document.getElementById('chatForm');
-const userInput = document.getElementById('userInput');
+const moodSelector = document.getElementById('mood-selector'); // Cache mood selector
+const noteInput = document.querySelector('#note-input'); // Cache note input
+const moodHistory = document.getElementById('mood-history'); // Cache mood history
 
-// Health tips and responses
-const healthTips = [
-    {
-        question: "How can I lose weight?",
-        answer: "Focus on a balanced diet and regular exercise. Stay hydrated!"
-    },
-    {
-        question: "What shoul
-        
-        
-        d I eat for breakfast?",
-        answer: "Try oatmeal with fruits or a smoothie with greens and protein."
-    },
-    {
-        question: "How much water should I drink?",
-        answer: "Aim for 8-10 glasses of water a day, depending on your activity level."
-    },
-    {
-        question: "What are some stress relief techniques?",
-        answer: "Consider deep breathing, yoga, or taking a walk in nature."
-    }
-];
+const logMoodEntry = (event) => {
+    event.preventDefault(); // Prevent form submission
 
-// Function to create and append a new message
-function appendMessage(text, sender) {
-    const messageElement = document.createElement('div');
-    messageElement.innerText = `${sender}: ${text}`;
-    chatWindow.appendChild(messageElement);
-    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
-}
+    const mood = moodSelector.value; // Get selected mood
+    const note = noteInput.value; // Get note text
 
-// Event listener for form submission
-chatForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const userMessage = userInput.value.toLowerCase();
-    appendMessage(userMessage, "User");
+    // Create a new mood entry
+    const moodEntry = document.createElement('div');
+    moodEntry.innerHTML = `<strong>${mood}</strong>: ${note}`;
     
-    // Check for responses
-    const response = healthTips.find(tip => userMessage.includes(tip.question.toLowerCase()));
-    if (response) {
-        appendMessage(response.answer, "Chatbot");
-    } else {
-        appendMessage("I'm sorry, I don't have information on that. Please ask about healthy living!", "Chatbot");
-    }
+    moodHistory.appendChild(moodEntry); // Add mood entry to the history
     
-    userInput.value = ''; // Clear input
-});
+    // Clear inputs
+    moodSelector.selectedIndex = 0; // Reset mood selector
+    noteInput.value = ''; // Clear note input
 
-// Initial greeting
-appendMessage("Hello! I'm your Healthy Living Chatbot. Ask me about healthy living!", "Chatbot");
+    // Save to localStorage
+    saveMoodToLocalStorage(mood, note);
+};
+
+const saveMoodToLocalStorage = (mood, note) => {
+    const moodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+    moodEntries.push({ mood, note });
+    localStorage.setItem('moodEntries', JSON.stringify(moodEntries));
+};
+
+const loadMoodHistory = () => {
+    const moodEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
+    moodEntries.forEach(entry => {
+        const moodEntry = document.createElement('div');
+        moodEntry.innerHTML = `<strong>${entry.mood}</strong>: ${entry.note}`;
+        moodHistory.appendChild(moodEntry); // Populate mood history on load
+    });
+};
+
+document.getElementById('mood-form').addEventListener('submit', logMoodEntry); // Event listener for form submission
+
+// Load mood history on page load
+loadMoodHistory();
